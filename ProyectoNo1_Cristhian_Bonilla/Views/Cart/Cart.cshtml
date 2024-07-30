@@ -1,0 +1,84 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    decimal SumarPrecios(List<ProyectoNo1_Cristhian_Bonilla.Models.Products> productos)
+    {
+        decimal total = 0;
+        foreach (var product in productos)
+        {
+            total += product.Price;
+        }
+        return total;
+    }
+}
+@model List<ProyectoNo1_Cristhian_Bonilla.Models.Products>
+
+<script type="text/javascript">
+    var flights = @Html.Raw(Json.Serialize(Model));
+
+    function Eliminar(index) {
+         $.ajax({
+             url: '@Url.Action("Eliminar", "Cart")',
+             type: 'POST',
+             data: { index: index },
+             success: function () {
+                 location.reload();
+             },
+             error: function () {
+                 alert('Ocurrió un error al eliminar el vuelo.');
+             }
+         });
+    }
+</script>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Carrito de Compras</h2>
+
+
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Procesador</th>
+                <th>RAM</th>
+                <th>Almacenamiento</th>
+                <th>Dimensiones</th>
+                <th>Color</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
+            {
+                <tr>
+                    <td>@item?.ProductName</td>
+                    <td>@item?.Brand</td>
+                    <td>@item?.Model</td>
+                    <td>@item?.Category</td>
+                    <td>@item?.Price.ToString("C")</td>
+                    <td>@item?.Processor</td>
+                    <td>@item?.RAM</td>
+                    <td>@item?.Storage</td>
+                    <td>@item?.Dimensions</td>
+                    <td>@item?.Color</td>
+                    <td>
+                        <button class="btn btn-danger" onclick="Eliminar(@index)">Eliminar</button>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td><b>Total</b></td>
+                <td colspan="3"></td>
+                <td><b>@SumarPrecios(Model).ToString("C")</b></td>
+                <td colspan="6"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-right mt-4">
+        <a asp-area="" asp-controller="Cart" asp-action="Payment" title="Realizar pago" class="btn btn-success">Proceder al Pago</a>
+    </div>

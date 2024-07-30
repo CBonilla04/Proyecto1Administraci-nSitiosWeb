@@ -1,0 +1,154 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProyectoNo1_Cristhian_Bonilla.Models.Products;
+
+<h2>Agregar Producto</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-controller="Product" asp-action="AddProduct" method="post" enctype="multipart/form-data">
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="ProductName" class="control-label">Nombre del Producto <span style="color: red;">*</span></label>
+                    <input asp-for="ProductName" class="form-control" placeholder="Ingrese el nombre del producto" required />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="Brand" class="control-label">Marca <span style="color: red;">*</span></label>
+                    <input asp-for="Brand" class="form-control" placeholder="Ingrese la marca" required />
+                    <span asp-validation-for="Brand" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="Model" class="control-label">Modelo <span style="color: red;">*</span></label>
+                    <input asp-for="Model" class="form-control" placeholder="Ingrese el modelo" required />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="Category" class="control-label">Categoría <span style="color: red;">*</span></label>
+                    <input asp-for="Category" class="form-control" placeholder="Ingrese la categoría" required />
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="Price" class="control-label">Precio <span style="color: red;">*</span></label>
+                    <input asp-for="Price" class="form-control" placeholder="Ingrese el precio" required />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="StockQuantity" class="control-label">Cantidad en Stock <span style="color: red;">*</span></label>
+                    <input asp-for="StockQuantity" class="form-control" placeholder="Ingrese la cantidad en stock" required />
+                    <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="Processor" class="control-label">Procesador <span style="color: red;">*</span></label>
+                    <input asp-for="Processor" class="form-control" placeholder="Ingrese el procesador" required />
+                    <span asp-validation-for="Processor" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="RAM" class="control-label">Memoria RAM <span style="color: red;">*</span></label>
+                    <input asp-for="RAM" class="form-control" placeholder="Ingrese la memoria RAM" required />
+                    <span asp-validation-for="RAM" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="Storage" class="control-label">Almacenamiento <span style="color: red;">*</span></label>
+                    <input asp-for="Storage" class="form-control" placeholder="Ingrese el almacenamiento" required />
+                    <span asp-validation-for="Storage" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="GraphicsCard" class="control-label">Tarjeta Gráfica <span style="color: red;">*</span></label>
+                    <input asp-for="GraphicsCard" class="form-control" placeholder="Ingrese la tarjeta gráfica" required />
+                    <span asp-validation-for="GraphicsCard" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="OperatingSystem" class="control-label">Sistema Operativo <span style="color: red;">*</span></label>
+                    <input asp-for="OperatingSystem" class="form-control" placeholder="Ingrese el sistema operativo" required />
+                    <span asp-validation-for="OperatingSystem" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="Weight" class="control-label">Peso <span style="color: red;">*</span></label>
+                    <input asp-for="Weight" class="form-control" placeholder="Ingrese el peso" required />
+                    <span asp-validation-for="Weight" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="Dimensions" class="control-label">Dimensiones <span style="color: red;">*</span></label>
+                    <input asp-for="Dimensions" class="form-control" placeholder="Ingrese las dimensiones" required />
+                    <span asp-validation-for="Dimensions" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="BatteryLife" class="control-label">Duración de la Batería <span style="color: red;">*</span></label>
+                    <input asp-for="BatteryLife" class="form-control" placeholder="Ingrese la duración de la batería" required />
+                    <span asp-validation-for="BatteryLife" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="Ports" class="control-label">Puertos <span style="color: red;">*</span></label>
+                    <input asp-for="Ports" class="form-control" placeholder="Ingrese los puertos" required />
+                    <span asp-validation-for="Ports" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="Connectivity" class="control-label">Conectividad <span style="color: red;">*</span></label>
+                    <input asp-for="Connectivity" class="form-control" placeholder="Ingrese la conectividad" required />
+                    <span asp-validation-for="Connectivity" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-5" style="margin-right: 5%;">
+                    <label asp-for="Color" class="control-label">Color <span style="color: red;">*</span></label>
+                    <input asp-for="Color" class="form-control" placeholder="Ingrese el color" required />
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-5">
+                    <label asp-for="Warranty" class="control-label">Garantía <span style="color: red;">*</span></label>
+                    <input asp-for="Warranty" class="form-control" placeholder="Ingrese la garantía" required />
+                    <span asp-validation-for="Warranty" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-12">
+                    <label asp-for="Description" class="control-label">Descripción <span style="color: red;">*</span></label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Ingrese la descripción" required></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row" style="display: flex; margin-bottom: 15px;">
+                <div class="form-group col-md-12">
+                    <label asp-for="Image" class="control-label">Imagen</label>
+                    <input type="file" name="ImageFile" class="form-control-file" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 mx-4">
+                <span style="color: red;">*</span> Campos obligatorios
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+
+        </form>
+    </div>
+</div>

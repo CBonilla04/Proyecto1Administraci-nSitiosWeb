@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<ProyectoNo1_Cristhian_Bonilla.Models.Historical>
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    @if (product.Image != null)
+                    {
+                        <img class="card-img-top" src="data:image/jpeg;base64,@Convert.ToBase64String(product.Image)" alt="@product.ProductName" />
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <p class="card-text"><strong>Marca:</strong> @product.Brand</p>
+                        <p class="card-text"><strong>Modelo:</strong> @product.Model</p>
+                        <p class="card-text"><strong>Precio:</strong> @product.Price.ToString("C")</p>
+                        <p class="card-text"><strong>Procesador:</strong> @product.Processor</p>
+                        <p class="card-text"><strong>Memoria RAM:</strong> @product.RAM</p>
+                        <p class="card-text"><strong>Almacenamiento:</strong> @product.Storage</p>
+                        <p class="card-text"><strong>Sistema Operativo:</strong> @product.OperatingSystem</p>
+                        <p class="card-text"><strong>Color:</strong> @product.Color</p>
+                        <p class="card-text"><strong>Descripción:</strong> @product.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Compra éxitosa</small>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
