@@ -7,12 +7,16 @@ using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddEnvironmentVariables();
 
+var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Reemplazar los placeholders con las variables de entorno
+var connectionString = ReplacePlaceholders(defaultConnectionString);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-
+    options.UseSqlServer(connectionString);
 });
 
 builder.Services.AddScoped<IUsersService, UsersService>();
@@ -62,3 +66,13 @@ app.MapControllerRoute(
     pattern: "{controller=User}/{action=LogIn}/{id?}");
 
 app.Run();
+
+string ReplacePlaceholders(string connectionString)
+{
+    return connectionString
+        .Replace("{DB_SERVER}", Environment.GetEnvironmentVariable("DB_SERVER"))
+        .Replace("{DB_PORT}", Environment.GetEnvironmentVariable("DB_PORT"))
+        .Replace("{DB_DATABASE}", Environment.GetEnvironmentVariable("DB_DATABASE"))
+        .Replace("{DB_USER}", Environment.GetEnvironmentVariable("DB_USER"))
+        .Replace("{DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD"));
+}
